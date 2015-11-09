@@ -17,5 +17,7 @@ namespace QuestionareEntityFramework
         public DateTime DateCreated { get; set; }
         public int User { get; set; }
         public DateTime Modify { get; set; }
+
+        public Quest Quest { get; set; }
     }
 }
