@@ -17,8 +17,13 @@ namespace QuestionareEntityFramework
         public int User { get; set; }
         public DateTime Modify { get; set; }
 
-        public Quest Quest { get; set; }
         public Chapter Chapter { get; set; }
         public Variant Variant { get; set; }
+        public ICollection<Answer> Answers { get; set; }
+
+        public Question()
+        {
+            Answers = new List<Answer>();
+        }
     }
 }
