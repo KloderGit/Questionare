@@ -12,6 +12,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using QuestionareEntityFramework;
+using System.Data;
+using System.Data.Entity;
 
 namespace TestUI
 {
@@ -23,6 +26,15 @@ namespace TestUI
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        public List select_quests() {
+            var users ;
+            using (QustionareContex db = new QustionareContex())
+            {
+                users = db.Quests;
+            }
+            return users.ToArray();
         }
     }
 }
