@@ -1,11 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.40629.0
+# Visual Studio 14
+VisualStudioVersion = 14.0.23107.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuestionareEntityFramework", "QuestionareEntityFramework\QuestionareEntityFramework.csproj", "{D872D69D-FED2-413F-AFE6-1F78A7CF283D}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuestionareTest", "QuestionareTest\QuestionareTest.csproj", "{47FC8E68-57AE-4FD7-A1AF-2B754B445299}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestUI", "TestUI\TestUI.csproj", "{B3CB4F56-3364-414E-A391-6B34B90878E3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{47FC8E68-57AE-4FD7-A1AF-2B754B445299}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{47FC8E68-57AE-4FD7-A1AF-2B754B445299}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{47FC8E68-57AE-4FD7-A1AF-2B754B445299}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B3CB4F56-3364-414E-A391-6B34B90878E3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B3CB4F56-3364-414E-A391-6B34B90878E3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B3CB4F56-3364-414E-A391-6B34B90878E3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B3CB4F56-3364-414E-A391-6B34B90878E3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
