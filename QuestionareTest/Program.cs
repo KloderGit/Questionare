@@ -17,7 +17,7 @@ namespace QuestionareTest
             {
                 var users = db.Quests.Include("Answers");
 
-                db.Database.Log = (s => Debug.WriteLine(s));
+                //db.Database.Log = Debug.Write;
 
                 Console.WriteLine("Список объектов:");
 
