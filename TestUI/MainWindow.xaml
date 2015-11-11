@@ -5,8 +5,17 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TestUI"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
-    <Grid>
-        <DataGrid x:Name="dataGrid"/>
+        Title="MainWindow" Height="350" Width="833">
+    <Grid RenderTransformOrigin="0.5,0.5" Margin="0,0,0,10" HorizontalAlignment="Left" Width="812">
+        <Grid.RenderTransform>
+            <TransformGroup>
+                <ScaleTransform/>
+                <SkewTransform/>
+                <RotateTransform Angle="-0.142"/>
+                <TranslateTransform/>
+            </TransformGroup>
+        </Grid.RenderTransform>
+        <DataGrid x:Name="dataGrid" HorizontalAlignment="Left" Width="413"/>
+        <TextBox x:Name="textBox" HorizontalAlignment="Left" Height="289" Margin="418,10,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="384"/>
     </Grid>
 </Window>

@@ -23,10 +23,13 @@ namespace TestUI
     /// </summary>
     public partial class MainWindow : Window
     {
+        //DataTable dt = new DataTable();
+        
         public MainWindow()
         {
             InitializeComponent();
             select_quests();
+
         }
 
         public void select_quests() {
@@ -34,11 +37,15 @@ namespace TestUI
             QustionareContex db = new QustionareContex();
             db.Database.Log = Console.Write;
 
-            var items = from p in db.Quests select p;
-            
-            var users = db.Quests.Load();
+            //var items = from p in db.Quests select p;
+            var dt = db.Quests.AsQueryable();
 
-            dataGrid.ItemsSource = items.ToList();
+            // foreach (Quest ii in items) {
+            // var dt = query.CopyToDataTable<Vendedor>();
+            //}
+
+            dataGrid.ItemsSource = dt.ToArray();
+
         }
     }
 }
