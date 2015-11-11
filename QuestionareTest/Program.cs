@@ -14,8 +14,10 @@ namespace QuestionareTest
         {
             using (QustionareContex db = new QustionareContex())
             {
-                // Первый комит новой ветки
                 var users = db.Quests.Include("Answers");
+
+                db.Database.Log = (s => System.Diagnostics.Debug.WriteLine(s));
+
                 Console.WriteLine("Список объектов:");
                 foreach (Quest u in users)
                 {

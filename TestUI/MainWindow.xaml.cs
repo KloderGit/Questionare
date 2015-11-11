@@ -26,15 +26,19 @@ namespace TestUI
         public MainWindow()
         {
             InitializeComponent();
+            select_quests();
         }
 
-        public List select_quests() {
-            var users ;
-            using (QustionareContex db = new QustionareContex())
-            {
-                users = db.Quests;
-            }
-            return users.ToArray();
+        public void select_quests() {
+
+            QustionareContex db = new QustionareContex();
+            db.Database.Log = Console.Write;
+
+            var items = from p in db.Quests select p;
+            
+            var users = db.Quests.Load();
+
+            dataGrid.ItemsSource = items.ToList();
         }
     }
 }
