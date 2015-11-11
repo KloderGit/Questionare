@@ -12,27 +12,22 @@ namespace QuestionareTest
     {
         static void Main(string[] args)
         {
-            using (QuestionareContext db = new QuestionareContext())
+            using (QustionareContex db = new QustionareContex())
             {
-                // создаем два объекта User
-                Quest user1 = new Quest { Text = "Tom", Description = "OOOOOOOOOOOOOOOO", User=1, modify=DateTime.Now };
-                Quest user2 = new Quest { Text = "Sam", Description = "RRRRRRRRRRRRRRRRR", User = 1, modify = DateTime.Now };
 
-                // добавляем их в бд
-                db.Quests.Add(user1);
-                db.Quests.Add(user2);
-                db.SaveChanges();
-                Console.WriteLine("Объекты успешно сохранены");
-
-                // получаем объекты из бд и выводим на консоль
-                var users = db.Quests;
+                var users = db.Quests.Include("Answers");
                 Console.WriteLine("Список объектов:");
                 foreach (Quest u in users)
                 {
                     Console.WriteLine("{0}.{1} - {2}", u.Id, u.Text, u.Description);
+
+                    foreach (Answer io in u.Answers) {
+                        Console.WriteLine("{0} - {1}", io.Text, io.Description);
+                    }
+
                 }
             }
-            Console.WriteLine();
+
             Console.Read();
         }
     }

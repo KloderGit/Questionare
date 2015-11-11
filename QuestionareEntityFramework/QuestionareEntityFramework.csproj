@@ -50,17 +50,64 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class\Answer.cs" />
-    <Compile Include="Class\Chapter.cs" />
-    <Compile Include="Class\Quest.cs" />
-    <Compile Include="Class\Questions.cs" />
+    <Compile Include="Answer.cs">
+      <DependentUpon>Qustionare.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Chapter.cs">
+      <DependentUpon>Qustionare.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Class\Variant.cs" />
-    <Compile Include="QuestionareContext.cs" />
+    <Compile Include="Quest.cs">
+      <DependentUpon>Qustionare.tt</DependentUpon>
+    </Compile>
+    <Compile Include="QuestItem.cs">
+      <DependentUpon>Qustionare.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Qustionare.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Qustionare.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Qustionare.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Qustionare.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Qustionare.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Qustionare.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Variant.cs">
+      <DependentUpon>Qustionare.tt</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+    <EntityDeploy Include="Qustionare.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Qustionare.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Qustionare.edmx.diagram">
+      <DependentUpon>Qustionare.edmx</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Qustionare.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Qustionare.Context.cs</LastGenOutput>
+      <DependentUpon>Qustionare.edmx</DependentUpon>
+    </Content>
+    <Content Include="Qustionare.edmx.sql" />
+    <Content Include="Qustionare.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Qustionare.cs</LastGenOutput>
+      <DependentUpon>Qustionare.edmx</DependentUpon>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

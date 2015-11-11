@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="20d49f995e314ccdb07bc69b82f9ae95" Name="Diagram1" >
+        <EntityTypeShape EntityType="Qustionare.Answer" Width="1.5" PointX="5.125" PointY="3.25" />
+        <EntityTypeShape EntityType="Qustionare.Chapter" Width="1.5" PointX="0.75" PointY="0.5" />
+        <EntityTypeShape EntityType="Qustionare.QuestItem" Width="1.5" PointX="3" PointY="1.875" />
+        <EntityTypeShape EntityType="Qustionare.Quest" Width="1.5" PointX="5.125" PointY="0.5" />
+        <EntityTypeShape EntityType="Qustionare.Variant" Width="1.5" PointX="0.875" PointY="3.5" />
+        <AssociationConnector Association="Qustionare.FK_ChapterQuestion" />
+        <AssociationConnector Association="Qustionare.FK_ChapterVariant" />
+        <AssociationConnector Association="Qustionare.FK_QuestQuestion" />
+        <AssociationConnector Association="Qustionare.FK_VariantQuestion" />
+        <AssociationConnector Association="Qustionare.QuestAnswer" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
