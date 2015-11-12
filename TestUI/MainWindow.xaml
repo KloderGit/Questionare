@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TestUI"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="833">
+        Title="MainWindow" Height="661" Width="833">
     <Grid RenderTransformOrigin="0.5,0.5" Margin="0,0,0,10" HorizontalAlignment="Left" Width="812">
         <Grid.RenderTransform>
             <TransformGroup>
@@ -15,7 +15,15 @@
                 <TranslateTransform/>
             </TransformGroup>
         </Grid.RenderTransform>
-        <DataGrid x:Name="dataGrid" HorizontalAlignment="Left" Width="413"/>
+        <DataGrid x:Name="dataGrid" HorizontalAlignment="Left" Width="413" Height="309" VerticalAlignment="Top"/>
         <TextBox x:Name="textBox" HorizontalAlignment="Left" Height="289" Margin="418,10,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="384"/>
+        <ListBox x:Name="listBox" HorizontalAlignment="Left" Height="287" VerticalAlignment="Top" Width="792" Margin="10,323,0,0">
+            <ListBox.ItemContainerStyle>
+                <Style TargetType="ListBoxItem">
+                    <Setter Property="Height" Value="50" />
+                </Style>
+            </ListBox.ItemContainerStyle>
+        </ListBox>
+
     </Grid>
 </Window>

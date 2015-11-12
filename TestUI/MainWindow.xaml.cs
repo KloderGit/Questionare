@@ -24,28 +24,59 @@ namespace TestUI
     public partial class MainWindow : Window
     {
         //DataTable dt = new DataTable();
-        
+        public List<Quest> Quests;
+
         public MainWindow()
         {
             InitializeComponent();
-            select_quests();
 
+            //Quests = select_quests();
+
+            dataGrid.ItemsSource = select_quests();
+            listBox.ItemsSource = select_quests2();
         }
 
-        public void select_quests() {
+        public List<Quest> select_quests() {
 
-            QustionareContex db = new QustionareContex();
-            db.Database.Log = Console.Write;
+            using (QustionareContex db = new QustionareContex()) {
+                db.Database.Log = Console.Write;
 
-            //var items = from p in db.Quests select p;
-            var dt = db.Quests.AsQueryable();
+                //var items = from p in db.Quests select p;
+                //var dt = db.Quests.AsQueryable();
 
-            // foreach (Quest ii in items) {
-            // var dt = query.CopyToDataTable<Vendedor>();
-            //}
+                // foreach (Quest ii in items) {
+                // var dt = query.CopyToDataTable<Vendedor>();
+                //}
 
-            dataGrid.ItemsSource = dt.ToArray();
+                var items = db.Quests.Include("Answers").ToList<Quest>();
 
+                //dataGrid.ItemsSource = dt.ToArray();
+
+                return items;
+            }
         }
+
+        public List<string> select_quests2()
+        {
+
+            using (QustionareContex db = new QustionareContex())
+            {
+                db.Database.Log = Console.Write;
+
+                //var items = from p in db.Quests select p;
+                //var dt = db.Quests.AsQueryable();
+
+                // foreach (Quest ii in items) {
+                // var dt = query.CopyToDataTable<Vendedor>();
+                //}
+
+                var items = db.Quests.Select(p => p.Text).ToList<String>();
+
+                //dataGrid.ItemsSource = dt.ToArray();
+
+                return items;
+            }
+        }
+
     }
 }
