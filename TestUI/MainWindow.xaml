@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TestUI"
         mc:Ignorable="d"
-        Title="MainWindow" Height="661" Width="833">
+        Title="MainWindow" Height="1060" Width="1265">
     <Grid RenderTransformOrigin="0.5,0.5" Margin="0,0,0,10" HorizontalAlignment="Left" Width="812">
         <Grid.RenderTransform>
             <TransformGroup>
@@ -24,6 +24,41 @@
                 </Style>
             </ListBox.ItemContainerStyle>
         </ListBox>
+        <ListView x:Name="listView" HorizontalAlignment="Left" Height="375" VerticalAlignment="Top" Width="792" Margin="10,634,0,0">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <Grid HorizontalAlignment="Left" Height="437" Margin="812,10,-435,0" VerticalAlignment="Top" Width="435">
+            <ListBox x:Name="listBox1" HorizontalAlignment="Left" Height="417" Margin="10,10,0,0" VerticalAlignment="Top" Width="415">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <Expander x:Name="expander" Header="{Binding Path=Text}" HorizontalAlignment="Left" VerticalAlignment="Top" >
+                            <Grid Margin="25,10,5,0">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="35*"/>
+                                    <RowDefinition Height="199*"/>
+                                </Grid.RowDefinitions>
+                                <TextBlock x:Name="textBlock" TextWrapping="Wrap" Text="{Binding Path=Description}" VerticalAlignment="Top" Height="34"/>
+
+                                <ListBox x:Name="listBox2" Grid.Row="1" ItemsSource="{Binding Path=Variants}" HorizontalAlignment="Stretch" Margin="0,5,0,0"  VerticalAlignment="Top" >
+                                    <ListBox.ItemTemplate>
+                                        <DataTemplate>
+                                            <Grid>
+                                                <TextBlock x:Name="textBlockkk" TextWrapping="Wrap" Text="{Binding Path=Text}" VerticalAlignment="Top" Height="34"/>
+                                            </Grid>
+                                        </DataTemplate>
+                                    </ListBox.ItemTemplate>
+                                </ListBox>
+                            </Grid>
+                        </Expander>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+        </Grid>
+
 
     </Grid>
 </Window>

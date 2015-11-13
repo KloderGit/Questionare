@@ -30,10 +30,12 @@ namespace TestUI
         {
             InitializeComponent();
 
-            //Quests = select_quests();
+            Quests = select_quests();
 
             dataGrid.ItemsSource = select_quests();
             listBox.ItemsSource = select_quests2();
+            listView.ItemsSource = Quests;
+            listBox1.ItemsSource = select_quests4();
         }
 
         public List<Quest> select_quests() {
@@ -71,6 +73,50 @@ namespace TestUI
                 //}
 
                 var items = db.Quests.Select(p => p.Text).ToList<String>();
+
+                //dataGrid.ItemsSource = dt.ToArray();
+
+                return items;
+            }
+        }
+
+        public List<string> select_quests3()
+        {
+
+            using (QustionareContex db = new QustionareContex())
+            {
+                db.Database.Log = Console.Write;
+
+                //var items = from p in db.Quests select p;
+                //var dt = db.Quests.AsQueryable();
+
+                // foreach (Quest ii in items) {
+                // var dt = query.CopyToDataTable<Vendedor>();
+                //}
+
+                var items = db.Chapters.Select(p => p.Text).ToList<String>();
+
+                //dataGrid.ItemsSource = dt.ToArray();
+
+                return items;
+            }
+        }
+
+        public List<Chapter> select_quests4()
+        {
+
+            using (QustionareContex db = new QustionareContex())
+            {
+                db.Database.Log = Console.Write;
+
+                //var items = from p in db.Quests select p;
+                //var dt = db.Quests.AsQueryable();
+
+                // foreach (Quest ii in items) {
+                // var dt = query.CopyToDataTable<Vendedor>();
+                //}
+
+                var items = db.Chapters.Include("Variants").ToList<Chapter>();
 
                 //dataGrid.ItemsSource = dt.ToArray();
 
