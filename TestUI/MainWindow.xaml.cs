@@ -32,10 +32,9 @@ namespace TestUI
 
             Quests = select_quests();
 
-            dataGrid.ItemsSource = select_quests();
-            listBox.ItemsSource = select_quests2();
-            listView.ItemsSource = Quests;
-            listBox1.ItemsSource = select_quests4();
+            //listBox1.ItemsSource = select_quests4();
+            treeView.ItemsSource = select_quests4();
+            //treeView1.ItemsSource = select_quests4();
         }
 
         public List<Quest> select_quests() {

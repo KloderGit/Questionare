@@ -3,61 +3,41 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:kld ="clr-namespace:QuestionareEntityFramework;assembly=QuestionareEntityFramework"      
         xmlns:local="clr-namespace:TestUI"
         mc:Ignorable="d"
-        Title="MainWindow" Height="1060" Width="1265">
-    <Grid RenderTransformOrigin="0.5,0.5" Margin="0,0,0,10" HorizontalAlignment="Left" Width="812">
-        <Grid.RenderTransform>
-            <TransformGroup>
-                <ScaleTransform/>
-                <SkewTransform/>
-                <RotateTransform Angle="-0.142"/>
-                <TranslateTransform/>
-            </TransformGroup>
-        </Grid.RenderTransform>
-        <DataGrid x:Name="dataGrid" HorizontalAlignment="Left" Width="413" Height="309" VerticalAlignment="Top"/>
-        <TextBox x:Name="textBox" HorizontalAlignment="Left" Height="289" Margin="418,10,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="384"/>
-        <ListBox x:Name="listBox" HorizontalAlignment="Left" Height="287" VerticalAlignment="Top" Width="792" Margin="10,323,0,0">
-            <ListBox.ItemContainerStyle>
-                <Style TargetType="ListBoxItem">
-                    <Setter Property="Height" Value="50" />
-                </Style>
-            </ListBox.ItemContainerStyle>
-        </ListBox>
-        <ListView x:Name="listView" HorizontalAlignment="Left" Height="375" VerticalAlignment="Top" Width="792" Margin="10,634,0,0">
-            <ListView.View>
-                <GridView>
-                    <GridViewColumn/>
-                </GridView>
-            </ListView.View>
-        </ListView>
-        <Grid HorizontalAlignment="Left" Height="437" Margin="812,10,-435,0" VerticalAlignment="Top" Width="435">
-            <ListBox x:Name="listBox1" HorizontalAlignment="Left" Height="417" Margin="10,10,0,0" VerticalAlignment="Top" Width="415">
-                <ListBox.ItemTemplate>
-                    <DataTemplate>
-                        <Expander x:Name="expander" Header="{Binding Path=Text}" HorizontalAlignment="Left" VerticalAlignment="Top" >
-                            <Grid Margin="25,10,5,0">
-                                <Grid.RowDefinitions>
-                                    <RowDefinition Height="35*"/>
-                                    <RowDefinition Height="199*"/>
-                                </Grid.RowDefinitions>
-                                <TextBlock x:Name="textBlock" TextWrapping="Wrap" Text="{Binding Path=Description}" VerticalAlignment="Top" Height="34"/>
+        Title="MainWindow" Height="864" Width="1079">
+    <Grid RenderTransformOrigin="0.5,0.5" Margin="0,0,0,36" HorizontalAlignment="Left" Width="1072">
 
-                                <ListBox x:Name="listBox2" Grid.Row="1" ItemsSource="{Binding Path=Variants}" HorizontalAlignment="Stretch" Margin="0,5,0,0"  VerticalAlignment="Top" >
-                                    <ListBox.ItemTemplate>
-                                        <DataTemplate>
-                                            <Grid>
-                                                <TextBlock x:Name="textBlockkk" TextWrapping="Wrap" Text="{Binding Path=Text}" VerticalAlignment="Top" Height="34"/>
-                                            </Grid>
-                                        </DataTemplate>
-                                    </ListBox.ItemTemplate>
-                                </ListBox>
-                            </Grid>
-                        </Expander>
-                    </DataTemplate>
-                </ListBox.ItemTemplate>
-            </ListBox>
-        </Grid>
+        <TreeView x:Name="treeView" HorizontalAlignment="Left"  Margin="10,10,0,0" VerticalAlignment="Top" >
+            <TreeView.Resources>
+
+                <HierarchicalDataTemplate DataType="{x:Type kld:Chapter}" ItemsSource="{Binding Path=Variants}">
+                    <Border BorderBrush="RoyalBlue" Background="RoyalBlue" BorderThickness="1" CornerRadius="2" Margin="2" Padding="2" >
+                        <StackPanel Orientation="Horizontal" >
+                            <TextBlock  Text="{Binding Path=Text}" FontWeight="Bold" Foreground="White"></TextBlock>
+                        </StackPanel>
+                    </Border>
+                </HierarchicalDataTemplate>
+
+                <HierarchicalDataTemplate DataType="{x:Type kld:Variant}">
+                    <Border Background="LightBlue" CornerRadius="2" Margin="1" >
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                                <ColumnDefinition Width="26"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+
+                            <TextBlock Margin="2"  Text="{Binding Path=Text}"></TextBlock>
+
+                            <Label Grid.Column="1" Content="OOPOPO"></Label>
+                        </Grid>
+                    </Border>
+                </HierarchicalDataTemplate>
+
+            </TreeView.Resources>
+        </TreeView>
+
 
 
     </Grid>
