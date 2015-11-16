@@ -15,6 +15,7 @@ using System.Windows.Shapes;
 using QuestionareEntityFramework;
 using System.Data;
 using System.Data.Entity;
+using System.Diagnostics;
 
 namespace TestUI
 {
@@ -122,6 +123,16 @@ namespace TestUI
                 return items;
             }
         }
+
+        private void lstKld_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            var i = (ListBox)sender;
+            Console.WriteLine("sdfasdfasdf");
+            var p = (Variant)i.DataContext;
+            Console.WriteLine(p);
+        }
+
+
 
     }
 }

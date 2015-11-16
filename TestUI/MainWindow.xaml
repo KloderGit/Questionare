@@ -7,9 +7,14 @@
         xmlns:local="clr-namespace:TestUI"
         mc:Ignorable="d"
         Title="MainWindow" Height="864" Width="1079">
-    <Grid RenderTransformOrigin="0.5,0.5" Margin="0,0,0,36" HorizontalAlignment="Left" Width="1072">
 
-        <TreeView x:Name="treeView" HorizontalAlignment="Left"  Margin="10,10,0,0" VerticalAlignment="Top" >
+    <Grid RenderTransformOrigin="0.5,0.5" Margin="0,0,0,36">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="41*"/>
+            <ColumnDefinition Width="112*"/>
+        </Grid.ColumnDefinitions>
+
+        <TreeView x:Name="treeView"  Margin="10,10,0,0" >
             <TreeView.Resources>
 
                 <HierarchicalDataTemplate DataType="{x:Type kld:Chapter}" ItemsSource="{Binding Path=Variants}">
@@ -20,7 +25,7 @@
                     </Border>
                 </HierarchicalDataTemplate>
 
-                <HierarchicalDataTemplate DataType="{x:Type kld:Variant}">
+                <HierarchicalDataTemplate DataType="{x:Type kld:Variant}" >
                     <Border Background="LightBlue" CornerRadius="2" Margin="1" >
                         <Grid>
                             <Grid.ColumnDefinitions>
@@ -30,15 +35,38 @@
 
                             <TextBlock Margin="2"  Text="{Binding Path=Text}"></TextBlock>
 
-                            <Label Grid.Column="1" Content="OOPOPO"></Label>
                         </Grid>
                     </Border>
                 </HierarchicalDataTemplate>
 
             </TreeView.Resources>
         </TreeView>
+        <Grid x:Name="inf" Grid.Column="1" Margin="10" DataContext="{Binding ElementName=treeView, Path=SelectedItem}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="152*"/>
+                <RowDefinition Height="625*"/>
+            </Grid.RowDefinitions>
+            <StackPanel>
+                <TextBlock Background="Beige" Text="{Binding Path=Text}" ></TextBlock>
+                <ListBox x:Name="lstKld" Background="Aqua" ItemsSource="{Binding }" Height="131" MouseDoubleClick="lstKld_MouseDoubleClick">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <Border Margin="5" BorderThickness="1" BorderBrush="SteelBlue" CornerRadius="4" Width="370">
+                                <Grid Margin="3">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition/>
+                                        <RowDefinition/>
+                                    </Grid.RowDefinitions>
 
+                                    <TextBlock Grid.Row="1" Text="6666666666666666666666"/>
+                                </Grid>
+                            </Border>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+            </StackPanel>
 
+        </Grid>
 
     </Grid>
 </Window>
