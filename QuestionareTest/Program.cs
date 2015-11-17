@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using QuestionareEntityFramework;
 //using System.Data.Entity;
+using System.Diagnostics;
 
 namespace QuestionareTest
 {
@@ -16,9 +17,16 @@ namespace QuestionareTest
             {
                 var users = db.Quests.Include("Answers");
 
+<<<<<<< HEAD
                 db.Database.Log = (s => System.Diagnostics.Debug.WriteLine(s));
+=======
+                //db.Database.Log = Debug.Write;
+>>>>>>> refs/remotes/origin/master
 
                 Console.WriteLine("Список объектов:");
+
+                Debug.WriteLine("OOOOOOOOOOOOOO");
+
                 foreach (Quest u in users)
                 {
                     Console.WriteLine("{0}.{1} - {2}", u.Id, u.Text, u.Description);
