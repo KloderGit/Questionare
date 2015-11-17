@@ -4,6 +4,17 @@
              xmlns:local="clr-namespace:TestUI"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+        <DataTemplate x:Key="CarsDataTemplate">
+            <Border Margin="5" BorderThickness="1" BorderBrush="SteelBlue" CornerRadius="4" Width="370">
+                <Grid Margin="3">
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <TextBlock FontWeight="Bold" Text="{Binding}"/>
+                    <TextBlock Grid.Row="1" Text="OPOPOPOPO"/>
+                </Grid>
+            </Border>
+        </DataTemplate>
     </Application.Resources>
 </Application>

@@ -31,30 +31,22 @@ namespace TestUI
         {
             InitializeComponent();
 
-            Quests = select_quests();
+            //Quests = select_quests();
 
-            //listBox1.ItemsSource = select_quests4();
+            listBox.ItemsSource = select_quests();
             treeView.ItemsSource = select_quests4();
             //treeView1.ItemsSource = select_quests4();
         }
 
-        public List<Quest> select_quests() {
+        public List<string> select_quests() {
 
             using (QustionareContex db = new QustionareContex()) {
                 db.Database.Log = Console.Write;
 
-                //var items = from p in db.Quests select p;
-                //var dt = db.Quests.AsQueryable();
+                var items = from p in db.Quests select p.Text;
 
-                // foreach (Quest ii in items) {
-                // var dt = query.CopyToDataTable<Vendedor>();
-                //}
 
-                var items = db.Quests.Include("Answers").ToList<Quest>();
-
-                //dataGrid.ItemsSource = dt.ToArray();
-
-                return items;
+                return items.ToList<string>();
             }
         }
 
@@ -109,29 +101,11 @@ namespace TestUI
             {
                 db.Database.Log = Console.Write;
 
-                //var items = from p in db.Quests select p;
-                //var dt = db.Quests.AsQueryable();
-
-                // foreach (Quest ii in items) {
-                // var dt = query.CopyToDataTable<Vendedor>();
-                //}
-
-                var items = db.Chapters.Include("Variants").ToList<Chapter>();
-
-                //dataGrid.ItemsSource = dt.ToArray();
+                var items = db.Chapters.Include("Variants.QuestItems.Quest").ToList<Chapter>();
 
                 return items;
             }
         }
-
-        private void lstKld_MouseDoubleClick(object sender, MouseButtonEventArgs e)
-        {
-            var i = (ListBox)sender;
-            Console.WriteLine("sdfasdfasdf");
-            var p = (Variant)i.DataContext;
-            Console.WriteLine(p);
-        }
-
 
 
     }
