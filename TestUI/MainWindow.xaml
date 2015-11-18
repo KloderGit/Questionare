@@ -14,61 +14,40 @@
             <ColumnDefinition Width="112*"/>
         </Grid.ColumnDefinitions>
 
-        <TreeView x:Name="treeView"  Margin="10,10,0,0" >
+        <TreeView x:Name="treeView"  Margin="10,10,0,0" SelectedItemChanged="treeView_SelectedItemChanged" FontSize="16" >
             <TreeView.Resources>
 
                 <HierarchicalDataTemplate DataType="{x:Type kld:Chapter}" ItemsSource="{Binding Path=Variants}">
-                    <Border BorderBrush="RoyalBlue" BorderThickness="1" CornerRadius="2" Margin="2" Padding="2" >
-                        <StackPanel Orientation="Horizontal" >
-                            <TextBlock  Text="{Binding Path=Text}" FontWeight="Bold" Foreground="Red"></TextBlock>
-                        </StackPanel>
-                    </Border>
+                    <TextBlock  Text="{Binding Path=Text}"></TextBlock>
                 </HierarchicalDataTemplate>
 
-
-
                 <HierarchicalDataTemplate DataType="{x:Type kld:Variant}" >
-                    <Border CornerRadius="2" Margin="1" >
-                        <Grid>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="*"></ColumnDefinition>
-                                <ColumnDefinition Width="26"></ColumnDefinition>
-                            </Grid.ColumnDefinitions>
-
                             <TextBlock Margin="2"  Text="{Binding Path=Text}"></TextBlock>
-
-                        </Grid>
-                    </Border>
                 </HierarchicalDataTemplate>
 
             </TreeView.Resources>
         </TreeView>
         <Grid x:Name="inf" Grid.Column="1" Margin="10" DataContext="{Binding ElementName=treeView, Path=SelectedItem}">
             <Grid.RowDefinitions>
-                <RowDefinition Height="86*"/>
-                <RowDefinition Height="383*"/>
-                <RowDefinition Height="309*"/>
+                <RowDefinition Height="85*"/>
+                <RowDefinition Height="231*"/>
+                <RowDefinition Height="241*"/>
+                <RowDefinition Height="220*"/>
             </Grid.RowDefinitions>
-            <TextBlock Background="Beige" Text="{Binding Path=Text}" Margin="0,18,0,19" />
-            <StackPanel Grid.Row="1" Margin="0,0,0,10" Grid.RowSpan="2">
-                <ListBox x:Name="lstKld" Background="Aqua" ItemsSource="{Binding ElementName=treeView, Path=SelectedItem.QuestItems}" Height="328">
-                    <ListBox.ItemTemplate>
-                        <DataTemplate>
-                            <Border Margin="5" BorderThickness="1" BorderBrush="SteelBlue" CornerRadius="4" >
-                                <Grid Margin="3">
-                                    <Grid.RowDefinitions>
-                                        <RowDefinition/>
-                                        <RowDefinition/>
-                                    </Grid.RowDefinitions>
-
-                                    <TextBlock TextWrapping="Wrap" Grid.Row="1" Text="{Binding Path=Quest.Text}" Width="500"/>
-                                </Grid>
-                            </Border>
-                        </DataTemplate>
-                    </ListBox.ItemTemplate>
-                </ListBox>
+            <StackPanel>
+                <TextBlock Background="Beige" Text="{Binding Path=Text}" MinHeight="45" VerticalAlignment="Center"  />
+                <TextBlock Background="Beige" Text="{Binding Path=Variant.Text}" MinHeight="45" VerticalAlignment="Center" />
             </StackPanel>
-            <ListBox Name="listBox" Margin="5" Grid.Row="2" SelectionMode="Multiple" ItemTemplate="{StaticResource CarsDataTemplate}" />
+            <ListBox x:Name="listBox1" Grid.Row="1" Margin="0,10,0,0" Grid.RowSpan="3">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal" MinHeight="49" >
+                            <CheckBox VerticalAlignment="Center"></CheckBox>
+                            <TextBlock Text="{Binding Path=Quest.Text}" VerticalAlignment="Center" HorizontalAlignment="Left" Width="700" />
+                        </StackPanel>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
         </Grid>
 
     </Grid>

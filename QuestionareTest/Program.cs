@@ -17,12 +17,6 @@ namespace QuestionareTest
             {
                 var users = db.Quests.Include("Answers");
 
-<<<<<<< HEAD
-                db.Database.Log = (s => System.Diagnostics.Debug.WriteLine(s));
-=======
-                //db.Database.Log = Debug.Write;
->>>>>>> refs/remotes/origin/master
-
                 Console.WriteLine("Список объектов:");
 
                 Debug.WriteLine("OOOOOOOOOOOOOO");
