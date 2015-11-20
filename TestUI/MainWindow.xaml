@@ -1,33 +1,34 @@
-﻿<Window x:Class="TestUI.MainWindow"
+﻿<Window
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:kld ="clr-namespace:QuestionareEntityFramework;assembly=QuestionareEntityFramework"      
         xmlns:local="clr-namespace:TestUI"
+        xmlns:Controls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Layout.Toolkit" x:Class="TestUI.MainWindow"
         mc:Ignorable="d"
         Title="MainWindow" Height="864" Width="1079">
 
-    <Grid RenderTransformOrigin="0.5,0.5" Margin="0,0,0,36">
+    <Grid RenderTransformOrigin="0.5,0.5" Margin="0,146,0,36">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="41*"/>
             <ColumnDefinition Width="112*"/>
         </Grid.ColumnDefinitions>
 
-        <TreeView x:Name="treeView"  Margin="10,10,0,0" SelectedItemChanged="treeView_SelectedItemChanged" FontSize="16" >
+        <TreeView x:Name="treeView"  Margin="10,376,0,0" SelectedItemChanged="treeView_SelectedItemChanged" FontSize="16" >
             <TreeView.Resources>
 
-                <HierarchicalDataTemplate DataType="{x:Type kld:Chapter}" ItemsSource="{Binding Path=Variants}">
-                    <TextBlock  Text="{Binding Path=Text}"></TextBlock>
+                <HierarchicalDataTemplate DataType="{x:Type kld:Chapter}" ItemsSource="{Binding Variants}">
+                    <TextBlock  Text="{Binding Text}"/>
                 </HierarchicalDataTemplate>
 
                 <HierarchicalDataTemplate DataType="{x:Type kld:Variant}" >
-                            <TextBlock Margin="2"  Text="{Binding Path=Text}"></TextBlock>
+                    <TextBlock Margin="2"  Text="{Binding Text}"/>
                 </HierarchicalDataTemplate>
 
             </TreeView.Resources>
         </TreeView>
-        <Grid x:Name="inf" Grid.Column="1" Margin="10" DataContext="{Binding ElementName=treeView, Path=SelectedItem}">
+        <Grid x:Name="inf" Grid.Column="1" Margin="10" DataContext="{Binding SelectedItem, ElementName=treeView}">
             <Grid.RowDefinitions>
                 <RowDefinition Height="85*"/>
                 <RowDefinition Height="231*"/>
@@ -35,20 +36,27 @@
                 <RowDefinition Height="220*"/>
             </Grid.RowDefinitions>
             <StackPanel>
-                <TextBlock Background="Beige" Text="{Binding Path=Text}" MinHeight="45" VerticalAlignment="Center"  />
-                <TextBlock Background="Beige" Text="{Binding Path=Variant.Text}" MinHeight="45" VerticalAlignment="Center" />
+                <TextBlock Background="Beige" Text="{Binding Text}" MinHeight="45" VerticalAlignment="Center"  />
+                <TextBlock Background="Beige" Text="{Binding Variant.Text}" MinHeight="45" VerticalAlignment="Center" />
             </StackPanel>
             <ListBox x:Name="listBox1" Grid.Row="1" Margin="0,10,0,0" Grid.RowSpan="3">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <StackPanel Orientation="Horizontal" MinHeight="49" >
-                            <CheckBox VerticalAlignment="Center"></CheckBox>
-                            <TextBlock Text="{Binding Path=Quest.Text}" VerticalAlignment="Center" HorizontalAlignment="Left" Width="700" />
+                            <CheckBox VerticalAlignment="Center"/>
+                            <TextBlock Text="{Binding Quest.Text}" VerticalAlignment="Center" HorizontalAlignment="Left" Width="700" />
                         </StackPanel>
                     </DataTemplate>
                 </ListBox.ItemTemplate>
             </ListBox>
         </Grid>
+
+        <Controls:Accordion HorizontalAlignment="Left" Height="190" Margin="10,150,0,0" VerticalAlignment="Top" Width="246">
+            <Button/>
+            <Button/>
+            <Button/>
+        </Controls:Accordion>
+        <Ribbon x:Name="ribbon" HorizontalAlignment="Left" Margin="10,-153,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2" Width="1051"/>
 
     </Grid>
 </Window>
