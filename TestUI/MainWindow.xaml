@@ -50,13 +50,33 @@
                 </ListBox.ItemTemplate>
             </ListBox>
         </Grid>
+        <Grid x:Name="gridAcc" Margin="10,10,10,275">
+            <Controls:Accordion x:Name="acc" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" ItemsSource="{Binding}">
+                <Controls:Accordion.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding Text}" />
+                    </DataTemplate>
+                </Controls:Accordion.ItemTemplate>
 
-        <Controls:Accordion HorizontalAlignment="Left" Height="190" Margin="10,150,0,0" VerticalAlignment="Top" Width="246">
-            <Button/>
-            <Button/>
-            <Button/>
-        </Controls:Accordion>
-        <Ribbon x:Name="ribbon" HorizontalAlignment="Left" Margin="10,-153,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2" Width="1051"/>
+                <Controls:Accordion.ContentTemplate>
+                    <DataTemplate>
+                        <ListView Name="ScenarioListBox" ItemsSource="{Binding Variants}" MinHeight="20" SelectionMode="Single"  >
+                            <ListView.View>
+                                <GridView>
+                                    <GridViewColumn Header="Name" Width="200">
+                                        <GridViewColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <Label Content="{Binding Path=Text}" />
+                                            </DataTemplate>
+                                        </GridViewColumn.CellTemplate>
+                                    </GridViewColumn>
+                                </GridView>
+                            </ListView.View>
+                        </ListView>
+                    </DataTemplate>
+                </Controls:Accordion.ContentTemplate>
+            </Controls:Accordion>
+        </Grid>
 
     </Grid>
 </Window>

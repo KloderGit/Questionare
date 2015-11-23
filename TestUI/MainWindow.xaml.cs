@@ -37,6 +37,8 @@ namespace TestUI
             listBox1.ItemsSource = select_quests2();
             treeView.ItemsSource = select_quests4();
             //treeView1.ItemsSource = select_quests4();
+            gridAcc.DataContext = select_quests4();
+            //acc.ItemsSource = select_quests4();
         }
 
         public List<string> select_quests() {
