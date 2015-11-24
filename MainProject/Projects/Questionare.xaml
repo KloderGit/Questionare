@@ -23,10 +23,11 @@
                 <ColumnDefinition Width="250"/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
-            <StackPanel Grid.Column="1" Background="#FF3F78DC"/>
+            <StackPanel Grid.Column="1" Background="#FF3F78DC" Orientation="Horizontal" />
             <Border MaxHeight="300" MinWidth="1" Background="#FF33629B">
                 <TextBlock x:Name="txtblockProjectName" Text="Тестирование" FontSize="21.333" MaxWidth="305" Foreground="White" VerticalAlignment="Top" Padding="15,10,0,0" Margin="0,5,0,0" FontWeight="Light"/>
             </Border>
+            <Button Content="Button" Grid.Column="1" HorizontalAlignment="Left" Height="30" Margin="10,10,0,0" VerticalAlignment="Top" Width="46" Click="Button_Click"/>
         </Grid>
         <StackPanel x:Name="panelLeftPanel" Grid.Row="1" >
             <Controls:Accordion x:Name="acc" ItemsSource="{Binding}"  >
@@ -39,7 +40,7 @@
                 <Controls:Accordion.ContentTemplate>
                     <DataTemplate>
                         <Grid Background="#FFF4F97D" >
-                            <ListBox Name="lstVariants" ItemsSource="{Binding Path=Variants}"  SelectionChanged="lstVariants_SelectionChanged">
+                            <ListBox x:Name="lstVariants" ItemsSource="{Binding Variants}"  SelectionChanged="lstVariants_SelectionChanged">
                                 <ListBox.ItemTemplate>
                                     <DataTemplate>
                                         <TextBlock Text="{Binding Text}" HorizontalAlignment="Stretch" MinHeight="30"/>
@@ -50,6 +51,8 @@
                     </DataTemplate>
                 </Controls:Accordion.ContentTemplate>
             </Controls:Accordion>
+
+
         </StackPanel>
         <Grid x:Name="WrapperLIst" Grid.Row="1" Grid.Column="1">
             <Grid>
@@ -57,7 +60,7 @@
                     <RowDefinition Height="60"/>
                     <RowDefinition/>
                 </Grid.RowDefinitions>
-                <ListBox x:Name="lslboxListQuestions" Grid.Row="1" Margin="5,0,0,0" ItemsSource="{Binding Path=QuestItems}">
+                <ListBox x:Name="lslboxListQuestions" Grid.Row="1" Margin="5,0,0,0" ItemsSource="{Binding QuestItems}">
                     <ListBox.ItemTemplate>
                         <DataTemplate>
                             <StackPanel Orientation="Horizontal" MinHeight="49" >
@@ -68,8 +71,8 @@
                     </ListBox.ItemTemplate>
                 </ListBox>
                 <StackPanel >
-                    <TextBlock Text="{Binding ElementName=acc, Path=SelectedItem.Text}" Margin="10,0,0,0" FontSize="24" Foreground="#FF666666" FontWeight="Light" />
-                    <TextBlock Text="{Binding Path=Text}" Margin="10,0,0,0" Foreground="#FF8B8B8B" FontSize="18.667" />
+                    <TextBlock Text="{Binding SelectedItem.Text, ElementName=acc}" Margin="10,0,0,0" FontSize="24" Foreground="#FF666666" FontWeight="Light" />
+                    <TextBlock Text="{Binding Text}" Margin="10,0,0,0" Foreground="#FF8B8B8B" FontSize="18.667" />
                 </StackPanel>
             </Grid>
         </Grid>

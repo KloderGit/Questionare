@@ -42,5 +42,11 @@ namespace MainProject
 
             WrapperLIst.DataContext = _questionare.GetVariants(_item);
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+        }
+
+
     }
 }

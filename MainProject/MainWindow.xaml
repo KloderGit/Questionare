@@ -19,4 +19,5 @@
             <TabControl x:Name="tabProjects"/>
         </Grid>
     </Grid>
+
 </Window>
