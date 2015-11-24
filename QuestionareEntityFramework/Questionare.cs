@@ -58,15 +58,13 @@ namespace QuestionareEntityFramework
         public ObservableCollection<Variant> GetVariants(int VariantId)
         {
             var lst = from ch in _Variants where ch.Id == VariantId select ch;
-            _Variants = new ObservableCollection<Variant>(lst);
-            return GetVariants();
+            return new ObservableCollection<Variant>(lst);
         }
 
         public ObservableCollection<Variant> GetVariants(Variant var_input)
         {
             var lst = from vnt in _Variants where vnt.ChapterId == var_input.ChapterId && vnt.Id == var_input.Id select vnt;
-            _Variants = new ObservableCollection<Variant>(lst);
-            return GetVariants();
+            return new ObservableCollection<Variant>(lst);
         }
 
         public void UpdateVariant() { LoadVariant(); }
