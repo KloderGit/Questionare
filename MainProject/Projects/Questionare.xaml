@@ -11,7 +11,7 @@
 
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="250"/>
+            <ColumnDefinition Width="270"/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
@@ -20,7 +20,7 @@
         </Grid.RowDefinitions>
         <Grid Grid.ColumnSpan="2">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="250"/>
+                <ColumnDefinition Width="270"/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
             <StackPanel Grid.Column="1" Background="#FF3F78DC"/>
@@ -38,11 +38,11 @@
 
                 <Controls:Accordion.ContentTemplate>
                     <DataTemplate>
-                        <Grid Background="#FFF4F97D" >
+                        <Grid Background="#FFF4F97D" Width="235" >
                             <ListBox Name="lstVariants" ItemsSource="{Binding Path=Variants}"  SelectionChanged="lstVariants_SelectionChanged">
                                 <ListBox.ItemTemplate>
                                     <DataTemplate>
-                                        <TextBlock Text="{Binding Text}" HorizontalAlignment="Stretch" MinHeight="30"/>
+                                        <TextBlock Text="{Binding Text}" HorizontalAlignment="Stretch" MinHeight="30" VerticalAlignment="Center" Margin="3,8,0,0"/>
                                     </DataTemplate>
                                 </ListBox.ItemTemplate>
                             </ListBox>
@@ -60,9 +60,9 @@
                 <ListBox x:Name="lslboxListQuestions" Grid.Row="1" Margin="5,0,0,0" ItemsSource="{Binding Path=QuestItems}">
                     <ListBox.ItemTemplate>
                         <DataTemplate>
-                            <StackPanel Orientation="Horizontal" MinHeight="49" >
-                                <CheckBox VerticalAlignment="Center"/>
-                                <TextBlock Text="{Binding Quest.Text}" VerticalAlignment="Center" HorizontalAlignment="Stretch" />
+                            <StackPanel Orientation="Horizontal" MinHeight="50" MaxHeight="65" >
+                                <CheckBox VerticalAlignment="Center" VerticalContentAlignment="Top" HorizontalContentAlignment="Center"/>
+                                <TextBlock Text="{Binding Quest.Text}" VerticalAlignment="Top" Width="{Binding ElementName=lslboxListQuestions,Path=ActualWidth}" HorizontalAlignment="Stretch" TextWrapping="Wrap" Margin="2,7,0,0" />
                             </StackPanel>
                         </DataTemplate>
                     </ListBox.ItemTemplate>
