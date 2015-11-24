@@ -1,15 +1,15 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{D872D69D-FED2-413F-AFE6-1F78A7CF283D}</ProjectGuid>
+    <ProjectGuid>{DA290123-F3C9-4529-A188-1937AF1F34EF}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>QuestionareEntityFramework</RootNamespace>
-    <AssemblyName>QuestionareEntityFramework</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <RootNamespace>Data</RootNamespace>
+    <AssemblyName>Data</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -41,74 +41,26 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Runtime.Serialization" />
-    <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Answer.cs">
-      <DependentUpon>Qustionare.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Chapter.cs">
-      <DependentUpon>Qustionare.tt</DependentUpon>
-    </Compile>
+    <Compile Include="DataQuestionare.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Quest.cs">
-      <DependentUpon>Qustionare.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Questionare.cs" />
-    <Compile Include="QuestItem.cs">
-      <DependentUpon>Qustionare.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Qustionare.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Qustionare.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Qustionare.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Qustionare.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Qustionare.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Qustionare.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="Variant.cs">
-      <DependentUpon>Qustionare.tt</DependentUpon>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
-    <EntityDeploy Include="Qustionare.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Qustionare.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <None Include="Qustionare.edmx.diagram">
-      <DependentUpon>Qustionare.edmx</DependentUpon>
-    </None>
   </ItemGroup>
   <ItemGroup>
-    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Qustionare.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>Qustionare.Context.cs</LastGenOutput>
-      <DependentUpon>Qustionare.edmx</DependentUpon>
-    </Content>
-    <Content Include="Qustionare.edmx.sql" />
-    <Content Include="Qustionare.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>Qustionare.cs</LastGenOutput>
-      <DependentUpon>Qustionare.edmx</DependentUpon>
-    </Content>
+    <ProjectReference Include="..\QuestionareEntityFramework\QuestionareEntityFramework.csproj">
+      <Project>{d872d69d-fed2-413f-afe6-1f78a7cf283d}</Project>
+      <Name>QuestionareEntityFramework</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

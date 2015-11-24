@@ -1,0 +1,78 @@
+﻿<Page
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:MainProject"
+      xmlns:Controls="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Layout.Toolkit" x:Class="MainProject.Questionare"
+      mc:Ignorable="d" 
+      d:DesignHeight="300" d:DesignWidth="500"
+      Title="Questionare">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="250"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid Grid.ColumnSpan="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="250"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <StackPanel Grid.Column="1" Background="#FF3F78DC"/>
+            <Border MaxHeight="300" MinWidth="1" Background="#FF33629B">
+                <TextBlock x:Name="txtblockProjectName" Text="Тестирование" FontSize="21.333" MaxWidth="305" Foreground="White" VerticalAlignment="Top" Padding="15,10,0,0" Margin="0,5,0,0" FontWeight="Light"/>
+            </Border>
+        </Grid>
+        <StackPanel x:Name="panelLeftPanel" Grid.Row="1" >
+            <Controls:Accordion x:Name="acc" ItemsSource="{Binding}"  >
+                <Controls:Accordion.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding Text}" />
+                    </DataTemplate>
+                </Controls:Accordion.ItemTemplate>
+
+                <Controls:Accordion.ContentTemplate>
+                    <DataTemplate>
+                        <Grid Background="#FFF4F97D" >
+                            <ListBox Name="lstVariants" ItemsSource="{Binding Path=Variants}"  SelectionChanged="lstVariants_SelectionChanged">
+                                <ListBox.ItemTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding Text}" HorizontalAlignment="Stretch" MinHeight="30"/>
+                                    </DataTemplate>
+                                </ListBox.ItemTemplate>
+                            </ListBox>
+                        </Grid>
+                    </DataTemplate>
+                </Controls:Accordion.ContentTemplate>
+            </Controls:Accordion>
+        </StackPanel>
+        <Grid x:Name="WrapperLIst" Grid.Row="1" Grid.Column="1">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="60"/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <ListBox x:Name="lslboxListQuestions" Grid.Row="1" Margin="5,0,0,0" ItemsSource="{Binding Path=QuestItems}">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal" MinHeight="49" >
+                                <CheckBox VerticalAlignment="Center"/>
+                                <TextBlock Text="{Binding Quest.Text}" VerticalAlignment="Center" HorizontalAlignment="Stretch" />
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+                <StackPanel >
+                    <TextBlock Text="{Binding ElementName=acc, Path=SelectedItem.Text}" Margin="10,0,0,0" FontSize="24" Foreground="#FF666666" FontWeight="Light" />
+                    <TextBlock Text="{Binding Path=Text}" Margin="10,0,0,0" Foreground="#FF8B8B8B" FontSize="18.667" />
+                </StackPanel>
+            </Grid>
+        </Grid>
+
+    </Grid>
+</Page>
