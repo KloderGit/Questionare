@@ -50,6 +50,7 @@
                     </DataTemplate>
                 </Controls:Accordion.ContentTemplate>
             </Controls:Accordion>
+            <Button x:Name="button" Content="Button" Click="button_Click"/>
         </StackPanel>
         <Grid x:Name="WrapperLIst" Grid.Row="1" Grid.Column="1">
             <Grid>
@@ -68,7 +69,7 @@
                     </ListBox.ItemTemplate>
                 </ListBox>
                 <StackPanel >
-                    <TextBlock Text="{Binding ElementName=acc, Path=SelectedItem.Text}" Margin="10,0,0,0" FontSize="24" Foreground="#FF666666" FontWeight="Light" />
+                    <TextBlock Text="{Binding Path=Chapter.Text}" Margin="10,0,0,0" FontSize="24" Foreground="#FF666666" FontWeight="Light" />
                     <TextBlock Text="{Binding Path=Text}" Margin="10,0,0,0" Foreground="#FF8B8B8B" FontSize="18.667" />
                 </StackPanel>
             </Grid>

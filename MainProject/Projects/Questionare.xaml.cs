@@ -22,15 +22,19 @@ namespace MainProject
     /// </summary>
     public partial class Questionare : Page
     {
+        MainWindow _parent;
         Quest.Questionare _questionare;
 
-        public Questionare()
+        public Questionare(MainWindow parentItem)
         {
             InitializeComponent();
-            _questionare = new Quest.Questionare();
-             panelLeftPanel.DataContext = _questionare.GetChapter();
 
-            _questionare.UpdateVariant();
+            _parent = parentItem;
+
+            _questionare = new Quest.Questionare();
+            panelLeftPanel.DataContext = _questionare.GetChapter();
+
+            //_questionare.UpdateVariant();
             
         }
 
@@ -40,7 +44,13 @@ namespace MainProject
             Quest.Variant _item = (Quest.Variant)_listbox.SelectedItem;
             Console.WriteLine(_item.Text);
 
-            WrapperLIst.DataContext = _questionare.GetVariants(_item);
+            WrapperLIst.DataContext = _item;
+ 
+        }
+
+        private void button_Click(object sender, RoutedEventArgs e)
+        {
+            _parent.ShowHideAdditionalPanel("right", true);
         }
     }
 }

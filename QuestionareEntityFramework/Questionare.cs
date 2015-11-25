@@ -16,7 +16,7 @@ namespace QuestionareEntityFramework
             UpdateChapter();
         }
 
-//      -----------------  Чтение Тем включая варианты  --------------------------------
+        //      -----------------  Чтение Тем включая варианты и вопросы  --------------------------------
 
         public ObservableCollection<Chapter> GetChapter() {
             return _Chapters;
@@ -25,15 +25,13 @@ namespace QuestionareEntityFramework
         public ObservableCollection<Chapter> GetChapter(int ChapterID)
         {
             var lst = from ch in _Chapters where ch.Id == ChapterID select ch;
-            _Chapters = new ObservableCollection<Chapter>(lst);
-            return GetChapter();
+            return new ObservableCollection<Chapter>(lst);
         }
 
         public ObservableCollection<Chapter> GetChapter(Chapter Chapter)
         {
             var lst = from ch in _Chapters where ch.Id == Chapter.Id select ch;
-            _Chapters = new ObservableCollection<Chapter>(lst);
-            return GetChapter();
+            return new ObservableCollection<Chapter>(lst);
         }
 
         public void UpdateChapter() { LoadChapter(); }

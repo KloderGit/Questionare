@@ -6,6 +6,16 @@
         xmlns:local="clr-namespace:MainProject"
         mc:Ignorable="d"
         Title="MainWindow" Height="367.815" Width="785.928">
+    <Window.Resources>
+
+        <Storyboard x:Key="sbShowRightMenu" >
+            <ThicknessAnimation Storyboard.TargetProperty="Margin" From="0,0,-605,0" To="0,0,0,0" DecelerationRatio=".9" Duration="0:0:.3" />
+        </Storyboard>
+        <Storyboard x:Key="sbHideRightMenu">
+            <ThicknessAnimation Storyboard.TargetProperty="Margin" From="0,0,0,0" To="0,0,-605,0" AccelerationRatio=".9" Duration="0:0:.3" />
+        </Storyboard>
+
+    </Window.Resources>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="30"/>
@@ -18,5 +28,14 @@
         <Grid Grid.Row="1">
             <TabControl x:Name="tabProjects"/>
         </Grid>
+        <StackPanel Panel.ZIndex="2" Name="pnlRightMenu" Orientation="Horizontal" Margin="0,0,-605,0" HorizontalAlignment="Right" Grid.RowSpan="3" Width="600">
+            <Border BorderBrush="#FF176AAF" BorderThickness="1" Width="600" Background="White" >
+                <StackPanel>
+                    <Button Width="100" HorizontalAlignment="Left" Click="Button_Click" />
+                </StackPanel>
+            </Border>
+        </StackPanel>
+        <Rectangle x:Name="ShadowPanel" Panel.ZIndex="1" Fill="#4C727272" Stroke="Black" Grid.RowSpan="3" Visibility="Hidden"/>
+
     </Grid>
 </Window>

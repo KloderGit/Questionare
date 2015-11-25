@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using QuestionareEntityFramework;
+using System.Windows.Media.Animation;
 
 
 namespace MainProject
@@ -26,17 +27,43 @@ namespace MainProject
         {
             InitializeComponent();
 
-            Questionare questionare = new Questionare();
+            //QuestionareEntityFramework.Questionare questionare = new QuestionareEntityFramework.Questionare();
 
             //listBox.ItemsSource = questionare.select_quests2();
 
             TabItem tabitem = new TabItem();
             tabitem.Header = "Тестирование";
             Frame tabFrame = new Frame();
-            Questionare page1 = new Questionare();
+            Questionare page1 = new Questionare(this);
             tabFrame.Content = page1;
             tabitem.Content = tabFrame;
             tabProjects.Items.Add(tabitem);
+        }
+
+
+
+        public void ShowHideAdditionalPanel(string position, bool visible) {
+
+            Storyboard sb; StackPanel pnl = null;
+
+            if (position == "right") { pnl = pnlRightMenu; }
+
+            if (visible)
+            {
+                sb = Resources["sbShowRightMenu"] as Storyboard;
+                ShadowPanel.Visibility = Visibility.Visible;
+            }
+            else {
+                sb = Resources["sbHideRightMenu"] as Storyboard;
+                ShadowPanel.Visibility = Visibility.Hidden;
+            }
+
+            sb.Begin(pnl);
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            ShowHideAdditionalPanel("right", false);
         }
     }
 }
