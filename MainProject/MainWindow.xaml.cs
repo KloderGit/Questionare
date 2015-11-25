@@ -42,7 +42,7 @@ namespace MainProject
 
 
 
-        public void ShowHideAdditionalPanel(string position, bool visible) {
+        public void ShowHideAdditionalPanel(string position, bool visible, string _caption, AddEntity Item) {
 
             Storyboard sb; StackPanel pnl = null;
 
@@ -52,18 +52,22 @@ namespace MainProject
             {
                 sb = Resources["sbShowRightMenu"] as Storyboard;
                 ShadowPanel.Visibility = Visibility.Visible;
+                WrapperPanel.Children.Add(Item);
             }
             else {
                 sb = Resources["sbHideRightMenu"] as Storyboard;
                 ShadowPanel.Visibility = Visibility.Hidden;
+                WrapperPanel.Children.Clear();
             }
+
+            PanelName.Text = _caption;
 
             sb.Begin(pnl);
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            ShowHideAdditionalPanel("right", false);
+            ShowHideAdditionalPanel("right", false, "", null);
         }
     }
 }

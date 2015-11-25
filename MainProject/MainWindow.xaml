@@ -3,6 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:quest="clr-namespace:QuestionareEntityFramework;assembly=QuestionareEntityFramework"
         xmlns:local="clr-namespace:MainProject"
         mc:Ignorable="d"
         Title="MainWindow" Height="367.815" Width="785.928">
@@ -31,7 +32,23 @@
         <StackPanel Panel.ZIndex="2" Name="pnlRightMenu" Orientation="Horizontal" Margin="0,0,-605,0" HorizontalAlignment="Right" Grid.RowSpan="3" Width="600">
             <Border BorderBrush="#FF176AAF" BorderThickness="1" Width="600" Background="White" >
                 <StackPanel>
-                    <Button Width="100" HorizontalAlignment="Left" Click="Button_Click" />
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="15"/>
+                            <RowDefinition Height="50"/>
+                            <RowDefinition Height="147*"/>
+                        </Grid.RowDefinitions>
+
+                        <Grid Grid.Row="2" x:Name="WrapperPanel"/>
+
+                        <Border Grid.Row="1" Background="#FF5D8BC3">
+                            <StackPanel Orientation="Horizontal">
+                                <Button Width="58" HorizontalAlignment="Center" Click="Button_Click" Height="30" Content="Закрыть" Margin="10,4,0,5" />
+                                <TextBlock x:Name="PanelName" Text="Добавление" FontSize="21.333" Foreground="White" VerticalAlignment="Top" Padding="15,10,0,0" FontWeight="Light" Margin="20,0,0,0"/>
+                            </StackPanel>
+                        </Border>
+                    </Grid>
+
                 </StackPanel>
             </Border>
         </StackPanel>

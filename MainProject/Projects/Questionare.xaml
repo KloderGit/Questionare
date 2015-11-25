@@ -51,6 +51,9 @@
                 </Controls:Accordion.ContentTemplate>
             </Controls:Accordion>
             <Button x:Name="button" Content="Button" Click="button_Click"/>
+            <Button x:Name="button1" Content="Button" Click="button1_Click"/>
+            <Button x:Name="button2" Content="Button" Click="button2_Click"/>
+            <Button x:Name="button3" Content="Button" Click="button3_Click"/>
         </StackPanel>
         <Grid x:Name="WrapperLIst" Grid.Row="1" Grid.Column="1">
             <Grid>
@@ -64,6 +67,7 @@
                             <StackPanel Orientation="Horizontal" MinHeight="50" MaxHeight="65" >
                                 <CheckBox VerticalAlignment="Center" VerticalContentAlignment="Top" HorizontalContentAlignment="Center"/>
                                 <TextBlock Text="{Binding Quest.Text}" VerticalAlignment="Top" Width="{Binding ElementName=lslboxListQuestions,Path=ActualWidth}" HorizontalAlignment="Stretch" TextWrapping="Wrap" Margin="2,7,0,0" />
+                                <TextBlock Text="4 ответа" VerticalAlignment="Top"  HorizontalAlignment="Stretch" TextWrapping="Wrap" />
                             </StackPanel>
                         </DataTemplate>
                     </ListBox.ItemTemplate>

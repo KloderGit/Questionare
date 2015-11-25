@@ -76,5 +76,29 @@ namespace QuestionareEntityFramework
                 _Variants = new ObservableCollection<Variant>(items);
             }
         }
+
+
+//      -----------------  Сохранение  --------------------------------
+
+        public void SaveDB()
+        {
+            using (QustionareContex db = new QustionareContex())
+            {
+                db.Database.Log = Console.Write;
+                db.SaveChanges();
+            }
+        }
+
+//      -----------------  Сохранение  --------------------------------
+
+        public void AddToChapter(Chapter item)
+        {
+            using (QustionareContex db = new QustionareContex())
+            {
+                db.Database.Log = Console.Write;
+                db.Chapters.Add(item);
+                db.SaveChanges();
+            }
+        }
     }
 }

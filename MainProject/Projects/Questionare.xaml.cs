@@ -50,7 +50,44 @@ namespace MainProject
 
         private void button_Click(object sender, RoutedEventArgs e)
         {
-            _parent.ShowHideAdditionalPanel("right", true);
+            //_parent.ShowHideAdditionalPanel("right", true, "Редактирование");
+        }
+
+        private void button1_Click(object sender, RoutedEventArgs e)
+        {
+            AddEntity EditEntity = new AddEntity();
+
+            EditEntity.WrapperEntity.DataContext = _questionare.GetChapter(1);
+
+            _parent.ShowHideAdditionalPanel("right", true, "Редактирование", EditEntity);
+        }
+
+        private void button2_Click(object sender, RoutedEventArgs e)
+        {
+            DialogWindowRight chapterExample = new DialogWindowRight();
+
+            chapterExample.Owner = App.Current.MainWindow;
+
+            chapterExample.WrapperEntity.DataContext = _questionare.GetChapter(1);
+
+            if ((bool)chapterExample.ShowDialog()) {
+                _questionare.SaveDB();
+            }
+
+
+        }
+
+        private void button3_Click(object sender, RoutedEventArgs e)
+        {
+            Quest.Chapter i = new QuestionareEntityFramework.Chapter();
+
+            i.Text = "OOOOOOOOOOO";
+            i.Description = "55555555555555555555555";
+            i.DateCreated = DateTime.Today;
+            i.ModifyAt = DateTime.Today;
+            i.ModifyBy = 1;
+
+            _questionare.AddToChapter(i);
         }
     }
 }
