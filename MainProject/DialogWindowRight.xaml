@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:MainProject"
         mc:Ignorable="d"
         Title="DialogWindowRight" 
-        Width="500"
+        Width="550"
         Height="400"
         Top="{Binding Owner.Top}"
         HorizontalAlignment="Right" VerticalAlignment="Top"
@@ -29,7 +29,7 @@
         </StackPanel>
         <StackPanel Orientation="Vertical" Grid.Row="1" Margin="10,0,10,10">
             <Label x:Name="label1" Content="Описание"/>
-            <TextBox x:Name="textBoxDescription" TextWrapping="Wrap" Text="TextBox" Height="106"/>
+            <TextBox x:Name="textBoxDescription" TextWrapping="Wrap" Text="{Binding Path=Description}" Height="106"/>
         </StackPanel>
     </Grid>
 </Window>

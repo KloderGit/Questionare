@@ -12,7 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using QuestionareEntityFramework;
+using Quest = QuestionareEntityFramework;
 using System.Windows.Media.Animation;
 
 
@@ -23,18 +23,16 @@ namespace MainProject
     /// </summary>
     public partial class MainWindow : Window
     {
+        Quest.Questionare _linkToQuestionare;
+
         public MainWindow()
         {
             InitializeComponent();
 
-            //QuestionareEntityFramework.Questionare questionare = new QuestionareEntityFramework.Questionare();
-
-            //listBox.ItemsSource = questionare.select_quests2();
-
             TabItem tabitem = new TabItem();
             tabitem.Header = "Тестирование";
             Frame tabFrame = new Frame();
-            Questionare page1 = new Questionare(this);
+            Questionare page1 = new Questionare(this, _linkToQuestionare);
             tabFrame.Content = page1;
             tabitem.Content = tabFrame;
             tabProjects.Items.Add(tabitem);

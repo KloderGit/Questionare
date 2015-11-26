@@ -52,8 +52,8 @@
             </Controls:Accordion>
             <Button x:Name="button" Content="Button" Click="button_Click"/>
             <Button x:Name="button1" Content="Button" Click="button1_Click"/>
-            <Button x:Name="button2" Content="Button" Click="button2_Click"/>
-            <Button x:Name="button3" Content="Button" Click="button3_Click"/>
+            <Button x:Name="button2" Content="BaseTypSave" Click="button2_Click"/>
+            <Button x:Name="button3" Content="AddChapter" Click="button3_Click"/>
         </StackPanel>
         <Grid x:Name="WrapperLIst" Grid.Row="1" Grid.Column="1">
             <Grid>
@@ -61,7 +61,7 @@
                     <RowDefinition Height="60"/>
                     <RowDefinition/>
                 </Grid.RowDefinitions>
-                <ListBox x:Name="lslboxListQuestions" Grid.Row="1" Margin="5,0,0,0" ItemsSource="{Binding Path=QuestItems}">
+                <ListBox x:Name="lslboxListQuestions" Grid.Row="1" Margin="5,0,0,0" ItemsSource="{Binding Path=QuestItems}" SelectionChanged="lslboxListQuestions_SelectionChanged">
                     <ListBox.ItemTemplate>
                         <DataTemplate>
                             <StackPanel Orientation="Horizontal" MinHeight="50" MaxHeight="65" >

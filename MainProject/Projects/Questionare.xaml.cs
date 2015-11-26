@@ -25,17 +25,16 @@ namespace MainProject
         MainWindow _parent;
         Quest.Questionare _questionare;
 
-        public Questionare(MainWindow parentItem)
+        public Questionare(MainWindow parentItem, Quest.Questionare _dbObjectLink)
         {
+            _dbObjectLink = new QuestionareEntityFramework.Questionare();
+
             InitializeComponent();
 
             _parent = parentItem;
 
-            _questionare = new Quest.Questionare();
-            panelLeftPanel.DataContext = _questionare.GetChapter();
-
-            //_questionare.UpdateVariant();
-            
+            _questionare = _dbObjectLink;
+            panelLeftPanel.DataContext = _questionare.GetChapter();           
         }
 
         private void lstVariants_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -47,6 +46,12 @@ namespace MainProject
             WrapperLIst.DataContext = _item;
  
         }
+
+
+        
+
+
+
 
         private void button_Click(object sender, RoutedEventArgs e)
         {
@@ -70,8 +75,19 @@ namespace MainProject
 
             chapterExample.WrapperEntity.DataContext = _questionare.GetChapter(1);
 
+            var pp = chapterExample.WrapperEntity.DataContext;
+            Console.WriteLine(pp);
+
+            var tt = pp.GetType().BaseType;
+            Console.WriteLine(tt);
+
+            var mm = (QuestionareEntityFramework.Chapter)pp;
+                       
+            Console.WriteLine(mm);
+
             if ((bool)chapterExample.ShowDialog()) {
-                _questionare.SaveDB();
+                _questionare.AddToChapter(mm);
+                Console.WriteLine(mm.Text);
             }
 
 
@@ -79,7 +95,7 @@ namespace MainProject
 
         private void button3_Click(object sender, RoutedEventArgs e)
         {
-            Quest.Chapter i = new QuestionareEntityFramework.Chapter();
+            Quest.Chapter i = _questionare.GetChapter(1);
 
             i.Text = "OOOOOOOOOOO";
             i.Description = "55555555555555555555555";
@@ -88,6 +104,21 @@ namespace MainProject
             i.ModifyBy = 1;
 
             _questionare.AddToChapter(i);
+        }
+
+        private void lslboxListQuestions_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            ListBox _listbox = (ListBox)sender;
+            Quest.QuestItem _item = (Quest.QuestItem)_listbox.SelectedItem;
+
+            Console.WriteLine(_item.Quest.Text);
+
+            DialogWindowRight chapterExample = new DialogWindowRight();
+            chapterExample.Owner = App.Current.MainWindow;
+
+            chapterExample.WrapperEntity.DataContext = _item.Quest;
+
+            chapterExample.ShowDialog();
         }
     }
 }
