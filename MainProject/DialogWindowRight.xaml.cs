@@ -22,6 +22,7 @@ namespace MainProject
         public DialogWindowRight()
         {
             InitializeComponent();
+            
         }
 
         private void button_Click(object sender, RoutedEventArgs e)

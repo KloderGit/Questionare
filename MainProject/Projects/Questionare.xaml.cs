@@ -34,7 +34,8 @@ namespace MainProject
             _parent = parentItem;
 
             _questionare = _dbObjectLink;
-            panelLeftPanel.DataContext = _questionare.GetChapter();           
+            panelLeftPanel.DataContext = _questionare.GetChapter();          
+
         }
 
         private void lstVariants_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -44,7 +45,9 @@ namespace MainProject
             Console.WriteLine(_item.Text);
 
             WrapperLIst.DataContext = _item;
- 
+
+            Console.WriteLine(acc.Items.Groups);
+
         }
 
 
@@ -55,7 +58,19 @@ namespace MainProject
 
         private void button_Click(object sender, RoutedEventArgs e)
         {
-            //_parent.ShowHideAdditionalPanel("right", true, "Редактирование");
+            ListBox _listbox = lslboxListQuestions;
+            Quest.QuestItem _item = (Quest.QuestItem)_listbox.SelectedItem;
+
+            Console.WriteLine(_item.Quest.Text);
+
+            DialogWindowRight chapterExample = new DialogWindowRight();
+            chapterExample.Owner = App.Current.MainWindow;
+            chapterExample.AllowsTransparency = true;
+            chapterExample.WindowStyle = WindowStyle.None;
+            chapterExample.WrapperEntity.DataContext = _item.Quest;
+            _parent.shadowFace = true;
+            chapterExample.ShowDialog();
+            _parent.shadowFace = false;
         }
 
         private void button1_Click(object sender, RoutedEventArgs e)
@@ -108,17 +123,9 @@ namespace MainProject
 
         private void lslboxListQuestions_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            ListBox _listbox = (ListBox)sender;
-            Quest.QuestItem _item = (Quest.QuestItem)_listbox.SelectedItem;
 
-            Console.WriteLine(_item.Quest.Text);
-
-            DialogWindowRight chapterExample = new DialogWindowRight();
-            chapterExample.Owner = App.Current.MainWindow;
-
-            chapterExample.WrapperEntity.DataContext = _item.Quest;
-
-            chapterExample.ShowDialog();
         }
+
+
     }
 }

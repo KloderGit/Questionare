@@ -23,6 +23,7 @@ namespace MainProject
     /// </summary>
     public partial class MainWindow : Window
     {
+        private bool _shadowFace;
         Quest.Questionare _linkToQuestionare;
 
         public MainWindow()
@@ -67,5 +68,19 @@ namespace MainProject
         {
             ShowHideAdditionalPanel("right", false, "", null);
         }
+
+        public bool shadowFace {
+            get { return _shadowFace; }
+            set {
+                if (value)
+                {
+                    ShadowPanel.Visibility = Visibility.Visible;
+                }
+                else {
+                    ShadowPanel.Visibility = Visibility.Hidden;
+                }
+            }
+        }
+
     }
 }

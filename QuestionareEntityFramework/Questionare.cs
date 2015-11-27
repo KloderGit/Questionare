@@ -39,8 +39,18 @@ namespace QuestionareEntityFramework
             }
         }
 
+        public List<Quest> LoadQuestItemForExample()
+        {
+            using (QustionareContex db = new QustionareContex())
+            {
+                db.Database.Log = Console.Write;
 
-//      -----------------  Сохранение  --------------------------------
+                return db.Quests.ToList<Quest>();
+            }
+        }
+
+
+        //      -----------------  Сохранение  --------------------------------
 
         public void SaveDB()
         {

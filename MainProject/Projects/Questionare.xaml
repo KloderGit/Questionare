@@ -29,31 +29,41 @@
             </Border>
         </Grid>
         <StackPanel x:Name="panelLeftPanel" Grid.Row="1" >
+
+            <Button Content="Добавить Предмет" Margin="10,10,0,15" Width="50" Height="50" HorizontalAlignment="Left" Background="#FFDBF3B8"/>
+
             <Controls:Accordion x:Name="acc" ItemsSource="{Binding}"  >
                 <Controls:Accordion.ItemTemplate>
                     <DataTemplate>
-                        <TextBlock Text="{Binding Text}" />
+                        <TextBlock Text="{Binding Text}" Height="40" FontSize="14.667" FontWeight="Light" />
                     </DataTemplate>
                 </Controls:Accordion.ItemTemplate>
 
                 <Controls:Accordion.ContentTemplate>
                     <DataTemplate>
-                        <Grid Background="#FFF4F97D" Width="235" >
-                            <ListBox Name="lstVariants" ItemsSource="{Binding Path=Variants}"  SelectionChanged="lstVariants_SelectionChanged">
-                                <ListBox.ItemTemplate>
-                                    <DataTemplate>
-                                        <TextBlock Text="{Binding Text}" HorizontalAlignment="Stretch" MinHeight="30" VerticalAlignment="Center" Margin="3,8,0,0"/>
-                                    </DataTemplate>
-                                </ListBox.ItemTemplate>
-                            </ListBox>
-                        </Grid>
+                        <StackPanel>
+                            <Button Content="Добавить вариант" Margin="0,10,0,15" Width="50" Height="50" HorizontalAlignment="Left" Background="#FFDBF3B8"/>
+
+                            <Grid Background="#FFF4F97D" Width="235" >
+                                <ListBox Name="lstVariants" ItemsSource="{Binding Path=Variants}"  SelectionChanged="lstVariants_SelectionChanged">
+                                    <ListBox.ItemTemplate>
+                                        <DataTemplate>
+                                            <TextBlock Text="{Binding Text}" HorizontalAlignment="Stretch" MinHeight="30" VerticalAlignment="Center" Margin="3,8,0,0" FontWeight="Light" FontSize="13.333"/>
+                                        </DataTemplate>
+                                    </ListBox.ItemTemplate>
+                                </ListBox>
+                            </Grid>
+                            <Button Content="Все вопросы по предмету" />
+                        </StackPanel>
                     </DataTemplate>
                 </Controls:Accordion.ContentTemplate>
+
             </Controls:Accordion>
             <Button x:Name="button" Content="Button" Click="button_Click"/>
             <Button x:Name="button1" Content="Button" Click="button1_Click"/>
             <Button x:Name="button2" Content="BaseTypSave" Click="button2_Click"/>
             <Button x:Name="button3" Content="AddChapter" Click="button3_Click"/>
+
         </StackPanel>
         <Grid x:Name="WrapperLIst" Grid.Row="1" Grid.Column="1">
             <Grid>
