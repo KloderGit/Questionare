@@ -12,7 +12,7 @@ namespace QuestionareEntityFramework
         protected List<Chapter> _Chapters;
 
         public Questionare() {
-            LoadChapter();
+
         }
 
         //      -----------------  Чтение Тем включая варианты и вопросы  --------------------------------
@@ -31,7 +31,7 @@ namespace QuestionareEntityFramework
             return _Chapters.Where(c => c.Id == _item.Id).ToList<Chapter>();
         }
 
-        protected void LoadChapter()
+        public void LoadChapter()
         {
             using (QustionareContex db = new QustionareContex())
             {

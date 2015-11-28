@@ -23,8 +23,8 @@ namespace MainProject
     /// </summary>
     public partial class MainWindow : Window
     {
-        private bool _shadowFace;
-        Quest.Questionare _linkToQuestionare;
+        private bool _shadowFace = false;
+        Quest.Questionare _linkToQuestionare = new Quest.Questionare();
 
         public MainWindow()
         {
@@ -33,7 +33,7 @@ namespace MainProject
             TabItem tabitem = new TabItem();
             tabitem.Header = "Тестирование";
             Frame tabFrame = new Frame();
-            Questionare page1 = new Questionare(this, _linkToQuestionare);
+            QuestProject page1 = new QuestProject(this, _linkToQuestionare);
             tabFrame.Content = page1;
             tabitem.Content = tabFrame;
             tabProjects.Items.Add(tabitem);

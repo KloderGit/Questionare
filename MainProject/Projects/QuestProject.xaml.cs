@@ -20,20 +20,20 @@ namespace MainProject
     /// <summary>
     /// Interaction logic for Questionare.xaml
     /// </summary>
-    public partial class Questionare : Page
+    public partial class QuestProject : Page
     {
         MainWindow _parent;
         Quest.Questionare _questionare;
 
-        public Questionare(MainWindow parentItem, Quest.Questionare _dbObjectLink)
+        public QuestProject(MainWindow parentItem, Quest.Questionare _dbObjectLink)
         {
-            _dbObjectLink = new QuestionareEntityFramework.Questionare();
-
             InitializeComponent();
 
             _parent = parentItem;
 
             _questionare = _dbObjectLink;
+            _questionare.LoadChapter();
+
             panelLeftPanel.DataContext = _questionare.GetChapter();          
 
         }
@@ -112,8 +112,8 @@ namespace MainProject
         {
             Quest.Chapter i = _questionare.GetChapter(1);
 
-            i.Text = "OOOOOOOOOOO";
-            i.Description = "55555555555555555555555";
+            i.Text = "Теория и методика";
+            i.Description = "Преподаватель: Калашников Д.Г.";
             i.DateCreated = DateTime.Today;
             i.ModifyAt = DateTime.Today;
             i.ModifyBy = 1;

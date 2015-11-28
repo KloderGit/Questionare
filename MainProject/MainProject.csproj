@@ -84,8 +84,8 @@
     <Compile Include="DialogWindowRight.xaml.cs">
       <DependentUpon>DialogWindowRight.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Projects\Questionare.xaml.cs">
-      <DependentUpon>Questionare.xaml</DependentUpon>
+    <Compile Include="Projects\QuestProject.xaml.cs">
+      <DependentUpon>QuestProject.xaml</DependentUpon>
     </Compile>
     <Page Include="AddEntity.xaml">
       <SubType>Designer</SubType>
@@ -107,7 +107,7 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="Projects\Questionare.xaml">
+    <Page Include="Projects\QuestProject.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

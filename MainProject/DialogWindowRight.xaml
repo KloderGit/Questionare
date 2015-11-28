@@ -14,22 +14,24 @@
         >
     <Grid x:Name="WrapperEntity">
         <Grid.RowDefinitions>
-            <RowDefinition Height="100"/>
-            <RowDefinition/>
-            <RowDefinition Height="40"/>
+            <RowDefinition Height="93"/>
+            <RowDefinition Height="74*"/>
         </Grid.RowDefinitions>
-        <StackPanel Margin="10,10,10,12" Orientation="Vertical">
-            <Label x:Name="label" Content="Заголовок"/>
-            <TextBox x:Name="textBoxTitle" TextWrapping="Wrap" Text="{Binding Text, Mode=TwoWay}" Height="43" VerticalAlignment="Top" FontWeight="Light" FontSize="26.667"/>
-        </StackPanel>
-        <StackPanel Grid.Row="2" Orientation="Horizontal" Margin="10,0">
-            <Button x:Name="button" IsDefault="True" Content="Сохранить" Width="100" Height="30" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,20,0" Click="button_Click"/>
-            <Button x:Name="button1" IsCancel="True" Content="Отмена" Width="100" Height="30" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,20,0"/>
-            <Button x:Name="button2" Content="Очистить" Width="100" Height="30" VerticalAlignment="Center" Margin="0,0,20,0" HorizontalAlignment="Center"/>
-        </StackPanel>
-        <StackPanel Orientation="Vertical" Grid.Row="1" Margin="10,0,10,10">
+        <Border BorderBrush="Black"  >
+            <TextBlock TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Center" Height="59" Background="#FF2C2CAA" Foreground="White" FontSize="18" FontWeight="Light"/>
+        </Border>
+        <StackPanel Orientation="Vertical" Grid.Row="1" Margin="10,0">
+            <StackPanel Orientation="Vertical">
+                <Label x:Name="label" Content="Заголовок"/>
+                <TextBox x:Name="textBoxTitle" TextWrapping="Wrap" Text="{Binding Text, Mode=TwoWay}" Height="43" VerticalAlignment="Top" FontWeight="Light" FontSize="26.667"/>
+            </StackPanel>
             <Label x:Name="label1" Content="Описание"/>
-            <TextBox x:Name="textBoxDescription" TextWrapping="Wrap" Text="{Binding Path=Description}" Height="106"/>
+            <TextBox x:Name="textBoxDescription" TextWrapping="Wrap" Text="{Binding Description}" Height="106"/>
+            <StackPanel Orientation="Horizontal">
+                <Button x:Name="button" IsDefault="True" Content="Сохранить" Click="button_Click" Width="150" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,10,0"/>
+                <Button x:Name="button1" IsCancel="True" Content="Отмена" Width="150" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,10,0"/>
+                <Button x:Name="button2" Content="Очистить" Width="150" Margin="0,0,10,0"/>
+            </StackPanel>
         </StackPanel>
     </Grid>
 </Window>
